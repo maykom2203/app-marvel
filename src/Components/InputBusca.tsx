@@ -1,4 +1,4 @@
-import { useState, useContext  } from "react"
+import { useState, useContext, useEffect } from "react"
 import { useNavigate } from 'react-router-dom';
 import { marvelContext } from "../Context/marvelContext";
 import { GetApi } from "../services/GetApi";
@@ -6,27 +6,43 @@ import { Character } from "../Interfaces/Icharacters";
 
 
 const InputBusca: React.FC = () => {
-  const {setState} = useContext(marvelContext);
+  const { setState } = useContext(marvelContext);
   const [search, setSearch] = useState('');
 
+
   const navigate = useNavigate();
-  function handleChancge(event: any) {   
+  function handleChancge(event: any) {
     setSearch(event.target.value)
-  
+
   }
 
-  async function carriesCharacter() {
-    const ApiCharacter = await GetApi();
-    const filterCharacters = ApiCharacter.filter((Character:Character)=>search === Character.name)
-    setState( {
-      characters: filterCharacters,
-    });
-    console.log(ApiCharacter)
-  }
- 
-  function handleButton(){
-    carriesCharacter()
-    navigate('/listMarvel') 
+
+  useEffect(() => {
+    setTimeout(() => {
+      async function carresHeroi() {
+        const Heroi: any = await GetApi();
+        const pagina: any = [];
+        Heroi.forEach((pags: any) => (
+          pags.forEach((pg: any) => (
+            pagina.push(pg)
+          ))
+        ))
+        const filterCharacters = pagina.filter((Character: Character) => Character.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+
+        setState({
+          characters: filterCharacters,
+        });
+
+
+        console.log(Heroi);
+      }
+      carresHeroi()
+    }, 1000);
+  }, [search, setState])
+
+  function handleButton() {
+
+    navigate('/listMarvel')
   }
   return (
     <div>
@@ -43,8 +59,8 @@ const InputBusca: React.FC = () => {
 
         <button
           type="button"
-        // disabled={ buttonHabilit }
-          onClick={handleButton }
+          // disabled={ buttonHabilit }
+          onClick={handleButton}
 
         >
           Pesquisar
