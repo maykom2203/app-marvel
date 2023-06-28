@@ -5,6 +5,7 @@ export interface Character {
         path: string,
         extension: string,
     }
+    description:string,
 
   }
   
