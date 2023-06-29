@@ -1,8 +1,9 @@
 
 import md5 from 'md5';
 
-const privateKey = "6e4ee40d109ad01524443ba3b64e34a0602b7f39";
-const publicKey = "9c0fd3f19e344518481770071a9beee8";
+
+const privateKey = process.env.REACT_APP_WEATHER_API_KEY;
+const publicKey = process.env.REACT_APP_WEATHER_API_KEY_PUBLIC;
 
 export const url = `http://gateway.marvel.com/v1/public/characters?limit=40`
 
