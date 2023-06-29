@@ -11,6 +11,7 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     async function allHeroi() {
       const ApiCharacters = await GetApiAll();
+      
       setState({
         characters: ApiCharacters,
       });

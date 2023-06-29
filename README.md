@@ -7,7 +7,7 @@
   Hooks customizados,
   Typescript,
   style component(styled, createGlobalStyle) e @media screen (responsivo),
-  Md5,
+  Md5 e biblioteca axio para puchar a Api.
 
 
  <summary><strong>:memo: Orientações </strong></summary><br />

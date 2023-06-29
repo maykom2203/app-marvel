@@ -1,4 +1,5 @@
-import { useState, useContext, useEffect } from "react"
+import axios from 'axios';
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { marvelContext } from "../Context/marvelContext";
 import { ApiKey, url } from "../services/GetApi";
@@ -24,11 +25,9 @@ const InputBusca: React.FC = () => {
     if (search) {
       const key = ApiKey();
       const urlFilter = `${ApiCharacters}&nameStartsWith=${search.toLocaleLowerCase()}&${key}`
-      const response = await fetch(urlFilter);
-      const database = await response.json();
-
+      const { data } = await axios.get(urlFilter);
       setState({
-        characters: database.data.results,
+        characters: data.data.results,
       });
     }
   }

@@ -1,6 +1,6 @@
 
 import md5 from 'md5';
-
+import axios from 'axios';
 
 const privateKey = process.env.REACT_APP_WEATHER_API_KEY;
 const publicKey = process.env.REACT_APP_WEATHER_API_KEY_PUBLIC;
@@ -20,8 +20,6 @@ export const ApiKey = () => {
 export const GetApiAll = async () => {
   const key = ApiKey();
   const urlApiAll = url + key
-  const response = await fetch(urlApiAll);
-  const database = await response.json();
-  return database.data.results;
-
+  const { data } = await axios.get(urlApiAll);
+  return data.data.results;
 }
