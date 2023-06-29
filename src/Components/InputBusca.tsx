@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { marvelContext } from "../Context/marvelContext";
 import { ApiKey, url } from "../services/GetApi";
@@ -10,13 +10,15 @@ import { H1, InputSearch, FormDiv, ButtonDescrit, LabelDiv, SvgLupa } from "../S
 const InputBusca: React.FC = () => {
   const { setState } = useContext(marvelContext);
   const [search, setSearch] = useState('');
-
+  const [buttonDizabilit, setbuttonDizabilit] = useState(false);
 
   const navigate = useNavigate();
-  function handleChancge(event: any) {
+
+  function handleChancge(event: React.ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value)
 
   }
+
   async function filterHeroi() {
     const ApiCharacters = url;
     if (search) {
@@ -31,11 +33,18 @@ const InputBusca: React.FC = () => {
     }
   }
 
-
   function handleButton() {
     filterHeroi()
     navigate('/listMarvel')
   }
+
+  useEffect(() => {
+    function validationInput() {
+      !search ? setbuttonDizabilit(true) : setbuttonDizabilit(false)
+    }
+    validationInput();
+  }, [search])
+
   return (
     <>
       <H1>Super Herois Marvel</H1>
@@ -59,11 +68,10 @@ const InputBusca: React.FC = () => {
 
         <ButtonDescrit
           type="button"
+          disabled={buttonDizabilit}
           onClick={handleButton}
         >
-
-          Pesquisar
-
+          Search
         </ButtonDescrit>
       </FormDiv>
     </>

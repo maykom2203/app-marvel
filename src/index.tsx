@@ -10,10 +10,10 @@ const root = createRoot(rootElement!);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <MarvelProvider>
-          <App />
-    </MarvelProvider>
-    <GlobalStyle />
+      <MarvelProvider>
+        <App />
+      </MarvelProvider>
+      <GlobalStyle />
     </BrowserRouter>
   </React.StrictMode>,
 

@@ -6,17 +6,17 @@ interface MarvelProviderProps {
 }
 
 const MarvelProvider = ({ children }: MarvelProviderProps) => {
-    const [state, setState] = useState(deafaultValue.state);
-  
-    return (
-      <marvelContext.Provider value={ {
-        state,
-        setState,
-      }
+  const [state, setState] = useState(deafaultValue.state);
+
+  return (
+    <marvelContext.Provider value={{
+      state,
+      setState,
+    }
     }>
-        {children}
-      </marvelContext.Provider>
-      
-    );
-  };
-  export default MarvelProvider
+      {children}
+    </marvelContext.Provider>
+
+  );
+};
+export default MarvelProvider

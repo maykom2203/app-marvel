@@ -8,8 +8,6 @@ const ListMarvel: React.FC = () => {
     <div>
       <CardCharacter />
     </div>
-
-
   )
 }
 

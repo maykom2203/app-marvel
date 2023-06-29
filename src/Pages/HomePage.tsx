@@ -21,17 +21,11 @@ const HomePage: React.FC = () => {
   }, [setState]);
 
 
-
-
   return (
-
-
     <div>
       <Header />
       <CardCharacter />
     </div>
-
-
   )
 }
 

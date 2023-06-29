@@ -9,10 +9,10 @@ type propsSerachContext = {
   setState: React.Dispatch<React.SetStateAction<marvelContextType>>,
 }
 export const deafaultValue = {
-  state:{
-    characters:[],
+  state: {
+    characters: [],
   },
-  setState: () => {}
+  setState: () => { }
 }
 
 export const marvelContext = createContext<propsSerachContext>(deafaultValue)

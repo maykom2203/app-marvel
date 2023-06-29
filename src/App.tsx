@@ -7,10 +7,10 @@ import DescricaoHeroi from './Pages/DescricaoHeroi';
 function App() {
   return (
     <Routes>
-      <Route path="/homePage" element={ <HomePage /> } />
-      <Route path="/listMarvel" element={ <ListMarvel /> } />
-      <Route path="/descricaoHeroi" element={ <DescricaoHeroi /> } />
-      <Route path="/" element={ <Navigate to="/homePage" /> } />
+      <Route path="/homePage" element={<HomePage />} />
+      <Route path="/listMarvel" element={<ListMarvel />} />
+      <Route path="/descricaoHeroi" element={<DescricaoHeroi />} />
+      <Route path="/" element={<Navigate to="/homePage" />} />
     </Routes>
   )
 }
