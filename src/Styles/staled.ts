@@ -111,7 +111,7 @@ text-shadow:
 
 `
 
-// estilo dos card
+// estilo card de Heroi
 export const CardHeroi = styled.div`
 
 width: 190px;
