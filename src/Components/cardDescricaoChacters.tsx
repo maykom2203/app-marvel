@@ -18,13 +18,13 @@ const CardDescricaoChacters: React.FC = () => {
         <DescritDiv key={character.id}>
           <H1Descrit>{character.name}</H1Descrit>
           <Img src={`${character.thumbnail.path}/landscape_incredible.${character.thumbnail.extension}`} alt={character.name} />
-          <H2>Descrição:</H2>
+          <H2>Description:</H2>
           <P>{character.description}</P>
           <ButtonDescrit
             type="button"
             onClick={HandleButtonHome}
           >
-            Voltar Pagina Inicial
+            Back Home
           </ButtonDescrit>
         </DescritDiv>
       ))}

@@ -26,7 +26,7 @@ const CardCharacter: React.FC = () => {
           <Cardimg src={`${character.thumbnail.path}/portrait_medium.${character.thumbnail.extension}`} alt={character.name} />
           <ButtonDescrit type="button"
             onClick={() => handleBuutonDecrition(character.id)}
-          >Descrição</ButtonDescrit>
+          >Description</ButtonDescrit>
         </CardHeroi>))}
     </CardDiv>
 
