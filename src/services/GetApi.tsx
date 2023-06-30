@@ -5,7 +5,7 @@ import axios from 'axios';
 const privateKey = process.env.REACT_APP_WEATHER_API_KEY;
 const publicKey = process.env.REACT_APP_WEATHER_API_KEY_PUBLIC;
 
-export const url = `http://gateway.marvel.com/v1/public/characters?limit=40`
+export const url = `https://gateway.marvel.com/v1/public/characters?limit=40`
 
 export const ApiKey = () => {
   const time = Date.now().toString();
